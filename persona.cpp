@@ -1,7 +1,7 @@
 #include "persona.h"
+#include <string>
 
-Persona::Persona()
+Persona::Persona(string nom, int edat)
 {
-    public:
-        int edat;
+
 }
