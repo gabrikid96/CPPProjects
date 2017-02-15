@@ -6,8 +6,11 @@ using namespace std;
 
 int getOption();
 int getSize(Persona *persones);
+void afegirPersona(Persona ** persones, string nom, int edat);
+void mostrarPersones(Persona ** persones);
 
 const int MAXIM = 100;
+int numPersones = 0;
 
 int main()
 {
@@ -19,13 +22,17 @@ int main()
     while (option != 5){
         switch (option){
             case 1:{//Afegir Persona
-                persones[0] = new Persona("Tu tia", 18);
-                persones[1] = new Persona("Tu tia", 18);
-                cout << getSize(*persones) << endl;
+                string nom;
+                int edat;
+                cout << "Digues el nom de la persona: ";
+                cin >> nom;
+                cout << "Digues la edat de la persona: ";
+                cin >> edat;
+                afegirPersona(persones,nom,edat);
             }break;
 
             case 2:{//Veure edat
-
+                mostrarPersones(persones);
             }break;
 
             case 3:{//Veure persones amb edat det
@@ -54,8 +61,21 @@ int getOption(){
     return option;
 }
 
-int getSize(Persona *persones){
-    //TODO : esto no da el size correcto!
-    return sizeof(Persona)/sizeof(*persones);
+void afegirPersona(Persona ** persones, string nom, int edat){
+    persones[numPersones] = new Persona(nom,edat);
+    numPersones++;
+}
+
+void mostrarPersones(Persona ** persones){
+    string nom;
+    int edat;
+    cout << "=====================" << endl;
+    for (int i = 0; i < numPersones; ++i){
+        edat = persones[numPersones]->getEdat();
+        nom = persones[numPersones]->getNom();
+        cout << "Persona " << i << endl;
+        cout << "\tNom: " << nom << endl << "\tEdat: " << edat << endl;
+    }
+    cout << "=====================" << endl;
 }
 

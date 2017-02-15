@@ -17,7 +17,7 @@ void Persona::setNom(string nom){
 }
 
 int Persona::getEdat(){
-    return this->getEdat();
+    return this->edat;
 }
 
 string Persona::getNom(){
