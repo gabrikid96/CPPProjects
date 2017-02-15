@@ -1,18 +1,27 @@
 #include <iostream>
+#include "persona.h"
+#include <string>
 
 using namespace std;
 
 int getOption();
+int getSize(Persona *persones);
+
+const int MAXIM = 100;
 
 int main()
 {
 
     int option = getOption();
+    Persona *persones[MAXIM];
+
 
     while (option != 5){
         switch (option){
             case 1:{//Afegir Persona
-
+                persones[0] = new Persona("Tu tia", 18);
+                persones[1] = new Persona("Tu tia", 18);
+                cout << getSize(*persones) << endl;
             }break;
 
             case 2:{//Veure edat
@@ -27,6 +36,7 @@ int main()
 
             }break;
         }
+        option = getOption();
     }
 
     return 0;
@@ -42,5 +52,10 @@ int getOption(){
     cout << "Tria una opció: ";
     cin >> option;
     return option;
+}
+
+int getSize(Persona *persones){
+    //TODO : esto no da el size correcto!
+    return sizeof(Persona)/sizeof(*persones);
 }
 
