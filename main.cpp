@@ -16,7 +16,6 @@ int main()
 {
 
     int option = getOption();
-    Persona *persones[MAXIM];
 
 
     while (option != 5){
@@ -28,11 +27,10 @@ int main()
                 cin >> nom;
                 cout << "Digues la edat de la persona: ";
                 cin >> edat;
-                afegirPersona(persones,nom,edat);
             }break;
 
             case 2:{//Veure edat
-                mostrarPersones(persones);
+
             }break;
 
             case 3:{//Veure persones amb edat det

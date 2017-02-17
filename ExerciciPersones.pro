@@ -4,11 +4,13 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += main.cpp \
-    persona.cpp
+    persona.cpp \
+    conjuntpersones.cpp
 
 include(deployment.pri)
 qtcAddDeployment()
 
 HEADERS += \
-    persona.h
+    persona.h \
+    conjuntpersones.h
 
