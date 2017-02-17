@@ -24,4 +24,8 @@ string Persona::getNom(){
     return this->nom;
 }
 
+Persona::~Persona(){
+
+}
+
 

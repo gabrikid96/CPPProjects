@@ -1,5 +1,6 @@
 #include <iostream>
 #include "persona.h"
+#include "conjuntpersones.h"
 #include <string>
 
 using namespace std;
@@ -16,33 +17,43 @@ int main()
 {
 
     int option = getOption();
-
-
+    ConjuntPersones *conjunt = new ConjuntPersones();
     while (option != 5){
+        string nom;
+        int edat;
         switch (option){
             case 1:{//Afegir Persona
-                string nom;
-                int edat;
                 cout << "Digues el nom de la persona: ";
                 cin >> nom;
                 cout << "Digues la edat de la persona: ";
                 cin >> edat;
+                Persona *persona = new Persona(nom,edat);
+                conjunt->afegirPersona(persona);
+
             }break;
 
             case 2:{//Veure edat
-
+                cout << "Digues el nom de la persona que vols veure la seva edat: ";
+                cin >> nom;
+                conjunt->veureEdat(nom);
             }break;
 
             case 3:{//Veure persones amb edat det
-
+                cout << "Digues la edat de les persones que vols veure: ";
+                cin >> edat;
+                conjunt->veurePersonesAmbEdat(edat);
             }break;
 
             case 4:{//Veure majors de
+            cout << "Digues la edat per veure les persones amb edat major o igual: ";
+            cin >> edat;
+            conjunt->veureMajors(edat);
 
             }break;
         }
         option = getOption();
     }
+    delete conjunt;
 
     return 0;
 }
@@ -59,21 +70,4 @@ int getOption(){
     return option;
 }
 
-void afegirPersona(Persona ** persones, string nom, int edat){
-    persones[numPersones] = new Persona(nom,edat);
-    numPersones++;
-}
-
-void mostrarPersones(Persona ** persones){
-    string nom;
-    int edat;
-    cout << "=====================" << endl;
-    for (int i = 0; i < numPersones; ++i){
-        edat = persones[numPersones]->getEdat();
-        nom = persones[numPersones]->getNom();
-        cout << "Persona " << i << endl;
-        cout << "\tNom: " << nom << endl << "\tEdat: " << edat << endl;
-    }
-    cout << "=====================" << endl;
-}
 

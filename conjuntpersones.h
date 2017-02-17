@@ -1,6 +1,7 @@
 #ifndef CONJUNTPERSONES_H
 #define CONJUNTPERSONES_H
-#define "persona.h"
+#define MAX 100
+#include "persona.h"
 #include <string>
 
 using namespace std;
@@ -8,16 +9,17 @@ using namespace std;
 
 class ConjuntPersones{
 
-private:
-    int numPersones;
-    Persona * persones;
-public:
-    ConjuntPersones(int maxim);
-    void afegirPersona(Persona persona);
-    void veureEdat(string nom);
-    void veurePersonesAmbEdat(int edat);
-    void veureMajors(int edat);
-    ~ConjuntPersones();
+
+    private:
+        int numPersones;
+        Persona * persones[MAX];
+    public:
+        ConjuntPersones();
+        void afegirPersona(Persona *persona);
+        void veureEdat(string nom);
+        void veurePersonesAmbEdat(int edat);
+        void veureMajors(int edat);
+        ~ConjuntPersones();
 };
 
 #endif // CONJUNTPERSONES_H
